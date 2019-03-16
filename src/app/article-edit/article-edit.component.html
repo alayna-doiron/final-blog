@@ -1,0 +1,18 @@
+<form #form="ngForm" *ngIf="article">
+    <div class="row">
+        <div class="col-sm-8 form-group">
+            <label>Title</label>
+            <input class="form-control" name="title" [(ngModel)]="article.title">
+        </div>
+        <div class="col-sm-4 form-group">
+            <label>Date</label>
+            <input type="text" class="form-control" name="date" [value]="article.date | date:'yyyy-MM-dd'" (input)="article.date=parseDate($event.target.value)">
+            <br>{{article.date}}
+        </div>
+    </div>
+    <textarea class="form-control" name="body" [(ngModel)]="article.body" rows="10"></textarea>
+
+    <div class="text-center mt-4">
+        <button class="btn btn-primary" (click)="save()">Save Article</button>
+    </div>
+</form>

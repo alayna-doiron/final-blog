@@ -1,0 +1,7 @@
+<div *ngIf="article">
+	<h1>{{article.title}}</h1>
+	<p>{{article.body}}</p>
+	<div>
+		<a routerLink="/articles/{{article._id}}/edit">Edit</a>
+	</div>
+</div>

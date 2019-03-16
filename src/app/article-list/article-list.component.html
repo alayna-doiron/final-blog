@@ -1,0 +1,6 @@
+<a routerLink="/articles/new/edit">Add Article</a>
+<table>
+	<tr *ngFor="let article of articles" routerLink="/articles/{{article._id}}">
+		<td>{{article.title}}</td>
+	</tr>
+</table>
