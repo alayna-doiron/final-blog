@@ -7,7 +7,7 @@ import { ArticleService } from '../article.service';
   styleUrls: ['./article-list.component.css']
 })
 export class ArticleListComponent  {
-articles = [];
+articles:any = [];
 
 	constructor(private articleService:ArticleService) {
 		articleService.getArticles().then(articles => {
