@@ -1,4 +1,16 @@
 .navbar {
 	font-family: 'Quattrocento Sans', sans-serif;
+}
 
+.navbar-brand {
+		font-family: 'Shadows Into Light';
+}
+
+.nav-right {
+	float: right
+}
+
+h1 {
+	font-family: 'Shadows Into Light', cursive;
+	text-align: center;
 }

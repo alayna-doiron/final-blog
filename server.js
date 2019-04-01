@@ -1,51 +1,38 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 const app = express();
 app.use(bodyParser.json());
 
-app.listen(8000);
-console.log('Blog server listening');
+const port = process.env.PORT || 8000;
 
-const articles = [{
-	_id: 1,
-	date: new Date(),
-	title: 'My first post!',			// title shows up on the ArticleList
-	body: 'Lorem ipsum.'				// body is only for the ArticleDetail
-},{
-	_id: 2,
-	date: new Date(),
-	title: 'My second post!',
-	body: 'Lorem ipsum, lorem ipsum.'
-},{
-	_id: 3,
-	date: new Date(),
-	title: 'More of my ramblings',
-	body: 'Lorem ipsum.  Lorem ipsum, lorem ipsum.'
-}]
+app.listen(port);
+console.log('Blog server listening on %j!', port);
+
+app.use(express.static('./client/dist/final-blog'));
+
+mongoose.connect('mongodb://bloguser:bloguser1@ds251598.mlab.com:51598/okcoders-blog-project', { useNewUrlParser: true });
+
+
+const Article = mongoose.model('Article', {
+	date: Date,
+	title: String,
+	body: String,
+})
 
 function getArticles(){
-	return Promise.resolve(articles);
+			return Article.find({}).sort({date:-1}).exec();
 }
 
 function getArticle(id){
-	var article = articles.find(article => article._id==id);
-	return Promise.resolve(article);
+	return Article.findById(id).exec();
 }
 
 function saveArticle(article) {
-			 var foundArticle = articles.find(a => a._id==article._id);
-			 if(foundArticle) {
-					 foundArticle.title = article.title;
-					 foundArticle.body = article.body;
-					 foundArticle.date = article.date;
-			 }
-			 else {
-				 article._id = articles.length+1;
-				 articles.push(article);
-			 }
-			 return Promise.resolve(article);
-	 }
+  if(!article._id) article = new Article(article);
+  return Article.findByIdAndUpdate(article._id, article, {upsert:true, new:true}).exec();
+};
 
 app.get('/api/articles', (req,res) =>{
 	getArticles().then(articles => {
@@ -53,13 +40,13 @@ app.get('/api/articles', (req,res) =>{
 	});
 });
 
-app.get('/api/article/:id', (req,res) =>{
-	getArticle(req.params.id).then(articles => {
-		res.json(articles);
-	});
+app.get('/api/articles/:id', (req,res) => {
+	getArticle(req.params.id).then(article => {
+		res.json(article);
+	})
 });
 
-app.post('/api/article', (req,res) =>{
+app.post('/api/articles', (req,res) => {
 	saveArticle(req.body).then(article => {
 		res.json(article);
 	});

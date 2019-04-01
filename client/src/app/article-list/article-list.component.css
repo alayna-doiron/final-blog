@@ -1,0 +1,87 @@
+h1 {
+	color: black;
+	font-family: 'Shadows Into Light';
+	text-align: right;
+	padding-top: 70px;
+	margin-left: 660px;
+	font-size: 75px;
+}
+
+.article-title{
+	font-family: 'Shadows Into Light';
+	font-size: 25px;
+}
+
+h3 {
+	color: black;
+	font-family: 'Shadows Into Light';
+	text-align: center;
+	font-size: 60px;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.smaller-img {
+	display: block;
+	width: auto;
+	height: 260px;
+}
+
+@media screen and (max-width: 480px) {
+	.smaller-img {
+		display: block;
+		width: auto;
+		max-height: 100%;
+		image-orientation: center;
+	}
+}
+
+h2, p {
+	font-family: 'Quattrocento Sans', sans-serif;
+}
+
+.paragraph-large {
+	font-size: 20px;
+}
+
+.jumbotron {
+background-image: url("/assets/sevilla.jpg");
+background-position: top;
+background-size: cover;
+height: 630px;
+text-align: left top;
+}
+@media only screen and (max-width: 768px) {
+#header {
+background-attachment: initial !important;
+}
+@media screen and (max-width: 480px) {
+    .jumbotron {
+         width: auto;
+				 height: auto;
+				 background-size: cover;
+				 background-position: top;
+    }
+		h1 {
+			text-align: left;
+			font-size: 20px;
+			padding-top: 0px;
+			margin-left: 2px;
+
+		}
+		img {
+			position: relative;
+		}
+}
+
+#header .bottom-header h2 {
+font-size:66px;
+}
+}
+.bottom-padding {
+	padding-bottom: 100px;
+}

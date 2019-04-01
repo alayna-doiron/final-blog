@@ -1,18 +1,22 @@
 <head>
-		<link href="https://fonts.googleapis.com/css?family=Quattrocento+Sans" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Quattrocento+Sans" rel="stylesheet">
 </head>
-
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<ul class="navbar-nav mr-auto">
-	  <li class="nav-item">
-			<a class="nav-link" routerLink="/home">Home</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link" routerLink="/articles">Articles</a>
-		</li>
-		 <li class="nav-item">
-			 <a class="nav-link" routerLink="/about">About</a>
-		</li>
-	</ul>
+<nav class="navbar  navbar-expand-lg navbar-light bg-light fixed-top">
+	<a class="navbar-brand" routerLink="/home">B&A</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse nav-right" id="navbarNavDropdown">
+		<ul class="navbar-nav ml-auto">
+			<li class="nav-item active">
+				<a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" routerLink="/about">About</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" routerLink="/articles">Blog</a>
+			</li>
+		</ul>
+	</div>
 </nav>

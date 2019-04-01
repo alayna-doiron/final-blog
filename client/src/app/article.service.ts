@@ -4,20 +4,21 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ArticleService {
-  constructor(private http:HttpClient) {
 
-	}
+  constructor(private http:HttpClient) {}
 
-	getArticles(){
-		return this.http.get('/api/articles').toPromise();
-	}
+  getArticles() {
+    return this.http.get('/api/articles').toPromise();
+  }
 
-	getArticle(id){
-		return this.http.get('/api/article/'+id).toPromise();
-	}
+  getArticle(id) {
+    return this.http.get('/api/articles/'+id).toPromise();
 
-	saveArticle(article) {
-		return this.http.post('/api/article', article).toPromise();
-}
+  };
+  saveArticle(article) {
+    return this.http.post('api/articles',article).toPromise();
+  };
+
 }

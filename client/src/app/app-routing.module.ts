@@ -12,7 +12,11 @@ const routes: Routes = [
 	{path:'about', component:AboutComponent},
 	{path:'articles', component:ArticleListComponent},
 	{path:'articles/:id', component:ArticleDetailComponent},
-	{path:'articles/:id/edit', component:ArticleEditComponent}
+	{path:'articles/:id/edit', component:ArticleEditComponent},
+	{path:'articles/new/edit', component:ArticleEditComponent},
+	{path:'', component:HomeComponent},
+  {path:'**', component:HomeComponent}
+
 ];
 
 @NgModule({

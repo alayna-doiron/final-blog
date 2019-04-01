@@ -1,0 +1,23 @@
+form {
+	margin-top: 300px;
+}
+
+.navbar {
+	font-family: 'Quattrocento Sans', sans-serif;
+}
+
+.navbar-brand {
+		font-family: 'Shadows Into Light';
+}
+
+.nav-right {
+	float: right
+}
+
+h1 {
+	font-family: 'Shadows Into Light', cursive;
+	text-align: center;
+}
+.bottom-padding {
+	padding-bottom: 100px;
+}

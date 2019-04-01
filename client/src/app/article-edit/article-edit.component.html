@@ -1,18 +1,25 @@
+<head>
+	<title>Our Travel Journal</title>
+	<link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Quattrocento+Sans" rel="stylesheet">
+</head>
 <form #form="ngForm" *ngIf="article">
-    <div class="row">
-        <div class="col-sm-8 form-group">
-            <label>Title</label>
-            <input class="form-control" name="title" [(ngModel)]="article.title">
-        </div>
-        <div class="col-sm-4 form-group">
-            <label>Date</label>
-            <input type="text" class="form-control" name="date" [value]="article.date | date:'yyyy-MM-dd'" (input)="article.date=parseDate($event.target.value)">
-            <br>{{article.date}}
-        </div>
-    </div>
-    <textarea class="form-control" name="body" [(ngModel)]="article.body" rows="10"></textarea>
-
-    <div class="text-center mt-4">
-        <button class="btn btn-primary" (click)="save()">Save Article</button>
-    </div>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-8 form-group">
+				<label>Title</label>
+				<input class="form-control" name="title" [(ngModel)]="article.title">
+			</div>
+			<div class="col-sm-4 form-group">
+				<label>Date</label>
+				<input type="text" class="form-control" name="date" [value]="article.date | date:'yyyy-MM-dd'" (input)="article.date=parseDate($event.target.value)">
+			</div>
+		</div>
+		<textarea class="form-control" name="body" [(ngModel)]="article.body" rows="10"></textarea>
+		<div class="text-center mt-4">
+			<button (click)="save()" class="btn btn-primary" routerLink="/articles">Save</button>
+		</div>
+		<div class="bottom-padding"></div>
+	</div>
 </form>
